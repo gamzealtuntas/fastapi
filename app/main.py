@@ -21,7 +21,7 @@ class AnalyzeResponse(BaseModel):
     lang: Literal["tr", "en"]
     model: str
 
-# 🔁 İstersen modeli burada değiştirebilirsin (örnek: emrecan/bert-base-turkish-sentiment-analysis)
+
 tr_model_id = "savasy/bert-base-turkish-sentiment-cased"
 en_model_id = "cardiffnlp/twitter-roberta-base-sentiment-latest"
 
@@ -67,7 +67,7 @@ def normalize_label(raw_label: str) -> str:
     if "neutral" in l or "neu" in l or "nötr" in l or "notr" in l:
         return "neutral"
 
-    # Label_0/1/2 varsa (örneğin: LABEL_0, LABEL_1)
+
     l = raw_label.strip().upper()
     if "LABEL_0" in l:
         return "negative"
@@ -125,8 +125,7 @@ def analyze(req: AnalyzeRequest):
         else:
             result = raw_result
 
-        print("🔎 Model çıktısı:", result)  # Terminalde göster
-
+        print(" Model çıktısı:", result)  
         sentiment = normalize_label(result["label"])
         score = round(float(result["score"]), 4)
 
