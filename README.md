@@ -28,7 +28,8 @@ pip install fastapi uvicorn transformers torch langdetect
 ##çalıştırma
 ##Normal çalıştırma:
 
-uvicorn main:app --reload
+uvicorn app.main:app --reload
+http://127.0.0.1:8000/docs 
 
 ##Windows üzerinde run.bat ile çalıştırmak için:
 
